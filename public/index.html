@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<!-- build:css css/main.css -->
+	<link rel="stylesheet" href="/css/main.css">
+	<!-- endbuild -->
+</head>
+<body ng-app='eBlog'>
+	<base href="/">
+	<div ui-view></div>
+	
+	<script src='js/libs/angular.js'></script>
+	<script src='js/libs/angular-ui-router.js'></script>
+	
+	<!-- build:js js/app.js -->
+	<script src='app.js'></script>
+	<script src='js/controllers/HomeController.js'></script>
+	<script src='js/controllers/LoginController.js'></script>
+	<script src='js/controllers/RegisterController.js'></script>
+	<script src='js/controllers/ArticleListController.js'></script>
+	<script src='js/controllers/ArticleDetailController.js'></script>
+	<!-- endbuild -->
+</body>
+</html>

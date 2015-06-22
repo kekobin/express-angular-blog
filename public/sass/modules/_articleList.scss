@@ -1,0 +1,108 @@
+.article-list{
+	padding-right:5%;
+
+	article{
+		padding-bottom:25px;
+
+		header{
+			 h1{
+			 	font-size: 2.4em;
+			  	line-height: 1.3em;
+			  	letter-spacing: -.01em;
+			  	padding-bottom: 0px;
+			  	font-weight: bold;
+  			 	 margin-bottom: 10px;
+
+  			  	a{
+  			  		color: #384047;
+  					text-decoration: none;
+
+  					&:focus,&:active,&:hover{
+  					  color: #D24D33 !important;
+  					  cursor: pointer;
+  					}
+  			  	}
+			 }
+
+  			.entry-meta{
+  				  position: relative;
+  				  color: #8c989e;
+  				  font-size: 16px;
+				  border-bottom: 1px solid #eee;
+				  padding-bottom: 30px;
+				  line-height: 1.4em;
+
+				  .author{
+				  	  color: #D24D33;
+  					  padding-right: 3px;
+				  }
+				  .bullet{
+				  	color: #d3d9dd;
+				    padding: 0 5px;
+				    font-size: 14px;
+				    position: relative;
+				    top: -1px;
+				  }
+
+				  .cat-links{
+				  	a{
+				  		color: #5fcf80;
+				  	}
+				  }
+				  .comment{
+				  	a{
+				  		color:#4090ba;
+				  	}
+				  }
+  			}
+		}
+		.entry-content{
+			  padding: 1.625em 0 0;
+			  .content-wrap{
+			  	  margin-bottom: 1.625em;
+			  	  font-size: 16px;
+				  line-height: 1.8;
+				  color: #737C7F;
+
+				  p {
+					    position:relative;
+					    line-height:1.4em;
+					    /* 3 times the line-height to show 3 lines */
+					    height:4.2em;
+					    overflow:hidden;
+
+					    &:after {
+						    content:"...";
+						    font-weight:bold;
+						    position:absolute;
+						    bottom:0;
+						    right:0;
+						    padding:0 20px 1px 10px;
+						    background:url(../img/ellipsis_bg.png) repeat-y;
+						}
+				  }
+				  .continue-reading {
+					  display: block ;
+					  margin-top: 30px;
+
+					  a{
+						  word-wrap: break-word;
+
+					  	  background: #5fcf80;
+						  color: #FFF;
+						  padding: 15px 40px 15px;
+						  border: solid #3ac162;
+						  border-width: 1px 1px 3px 1px;
+						  border-radius: 5px;
+						  font-size: 1em;
+						  line-height: 1;
+						  font-weight: bold;
+						  -moz-box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+						  -webkit-box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+						  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
+					  }
+				  }
+			  }
+		}
+	}
+}

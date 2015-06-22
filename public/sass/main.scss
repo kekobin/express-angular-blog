@@ -1,0 +1,24 @@
+@import "common/base";
+@import "partials/head";
+@import "partials/aside";
+@import "modules/articleList";
+@import "modules/sign";
+
+a:hover{
+	text-decoration:initial;
+}
+
+::-webkit-input-placeholder{ 
+	color:#fff;
+}
+
+:-moz-placeholder{ 
+	color:#fff;
+}
+
+::-moz-placeholder{
+	color:#fff;
+}
+:-ms-input-placeholder{
+	color:#fff;
+}

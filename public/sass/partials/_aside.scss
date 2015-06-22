@@ -1,0 +1,19 @@
+.personal{
+  background: #eaeef1;
+  border-radius: 5px;
+  padding:8%;
+  margin-right: -10px;
+}
+.no-sign{
+	  text-align: center;
+	  .sign-register{
+		margin:0 auto;
+		button{
+			@include inline-block;
+			margin-right:10px;
+		}
+		a.regist{
+			cursor:pointer;
+		}
+	}
+}

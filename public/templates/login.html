@@ -1,0 +1,11 @@
+<div class="sign-container">
+	<div class="page-container">
+        <h1>登录-互娱</h1>
+        <form id="loginForm">
+            <input type="text" name="username" class="username" placeholder="请输入您的用户名！" ng-model="username" ng-keyup="keyup()">
+            <input type="password" name="password" class="password" placeholder="请输入您的用户密码！" ng-model="password"  ng-keyup="keyup()">
+            <button type="submit" class="submit_button" ng-click="login()">登录</button>
+            <div id="errorSign" class="error"><span>+</span></div>
+        </form>
+    </div>
+</div>
