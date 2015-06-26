@@ -1,15 +1,12 @@
-//model 层直接与数据库打交道 
-var mongoose = require('mongoose'),
-	Schema = mongoose.Schema;
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+var passportLocalMongoose = require('passport-local-mongoose');
 
 var UserSchema = new Schema({
-	name: String,
-	password: String
+    username: String,
+    password: String
 });
 
-UserSchema.methods = {
+UserSchema.plugin(passportLocalMongoose);
 
-};
-
-
-mongoose.model('User', UserSchema);
+module.exports = mongoose.model('User', UserSchema);

@@ -26,6 +26,17 @@ angular.module('eBlog', ['ui.router'])
 			url: '/articleList',
 			templateUrl: '/templates/articleList.html',
 			controller: 'ArticleListController'
+		})
+		.state('center', {
+			url: '/center',
+			abstract: true,
+			templateUrl: '/templates/center.html',
+			controller: 'CenterController'
+		})
+		.state('center.my', {
+			url: '/my',
+			templateUrl: '/templates/my.html',
+			controller: 'MyController'
 		});
 
 	$urlRouterProvider.otherwise('/home/articleList');

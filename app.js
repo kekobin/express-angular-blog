@@ -3,6 +3,7 @@ var mongoose = require('mongoose');
 var config = require('./config/config');
 var fs = require('fs');
 var app = express();
+var passport = require('passport');
 
 //connect to mongodb
 var connect = function() {
@@ -20,9 +21,12 @@ fs.readdirSync(models_path).forEach(function(file) {
 });
 
 //require base setting
-require('./config/setting')(app, config);
+require('./config/setting')(app, config, passport);
+
+//require passport
+require('./config/passport')(app, config);
 
 //handle all router of API
-require('./routes/router')(app);
+// require('./routes/router')(app, config);
 
 module.exports = app;

@@ -5,10 +5,10 @@ angular.module('eBlog')
 	var input = element.find("input");
 
 	$scope.login = function() {
-		var name = $scope.username;
+		var username = $scope.username;
 		var password = $scope.password;
 		
-		if(!name) {
+		if(!username) {
 			errorSign.css({"top":"24px", "display":"block"});
 			input[0].focus();
 			return false;
@@ -20,16 +20,15 @@ angular.module('eBlog')
 		}
 
 		$http.post('/api/login', {
-			name: name,
+			username: username,
 			password: password
 		}).then(function(resp) {
-			console.log('success:'+JSON.stringify(resp));
+			console.log(resp);
+			console.log(resp.data.username);
 			if(resp.data && resp.status && resp.status === 200) {
-				if(resp.data === 'success') {
-					$state.go('home.articleList');
-				} else {
-
-				}
+				$state.go('home.articleList',{
+					user: resp.data.username
+				});
 			}
 		}, function(resp) {
 			console.log('error:'+JSON.stringify(resp));

@@ -4,8 +4,9 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var router = require('../routes/router');
 
-module.exports = function(app, config) {
+module.exports = function(app, config, passport) {
 	//view engine setup
 	app.set('views', path.join(__dirname, 'views'));
 	app.set('view engine', 'ejs');
@@ -18,15 +19,17 @@ module.exports = function(app, config) {
 		extended: false
 	}));
 	app.use(cookieParser());
+	app.use(require('express-session')({
+		secret: 'font-end-blog',
+		resave: false,
+		saveUninitialized: false
+	}));
+	app.use(passport.initialize());
+	app.use(passport.session());
 	app.use(express.static(config.root + '/public'));
 
-	//throw all operations to Front-end Router if it's not an api request,e.g: refresh in any page
-	app.use(function(req, res) {
-		console.log(req.path);
-		if (req.path.indexOf('/api') < 0) {
-			res.sendFile(config.root + '/public/index.html');
-		}
-	});
+	////handle all router of API
+	require('../routes/router')(app, config);
 
 	// catch 404 and forward to error handler
 	app.use(function(req, res, next) {

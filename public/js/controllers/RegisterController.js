@@ -5,11 +5,11 @@ angular.module('eBlog')
 		var input = element.find("input");
 
 		$scope.register = function() {
-			var name = $scope.username;
+			var username = $scope.username;
 			var password = $scope.password;
 			var password2 = $scope.password2;
 
-			if (!name) {
+			if (!username) {
 				errorSign.css({"top": "24px","display": "block"});
 				input[0].focus();
 				return false;
@@ -26,7 +26,7 @@ angular.module('eBlog')
 			}
 
 			$http.post('/api/register', {
-				name: name,
+				username: username,
 				password: password
 			}).then(function(resp) {
 				console.log("----this is register------");

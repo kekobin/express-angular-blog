@@ -1,30 +1,16 @@
 var users = require('../app/controller/users');
 var registModules = require('../app/controller/registModules');
+var passport = require('passport');
 
-/* GET home page. */
-// router.get('/', function(req, res) {
-// 	res.sendFile('public/index.html');
-// });
+module.exports = function(app,config) {
+	app.post('/api/login', passport.authenticate('local'), function(req, res) {
+	    res.send(req.user);
+	});
 
-//handle user requests
-// router.post('/api/login', function(req, res, next) {
-// 	console.log("-------------------wrrrrrronglllllllllll111111111111")
-// }, users.login);
-// router.post('/api/register', function(req, res, next) {
-// 	console.log("-------------------22222222222222222222")
-// }, users.register);
-
-//handle module requests
-// router.post('/api/regist/add', registModules.add);
-// router.get('/api/regist', registModules.getAll);
-// router.get('/api/regist/:id', registModules.getOne);
-// router.post('/api/regist/:id', registModules.update);
-// router.delete('/api/regist/:id', registModules.del);
-
-// module.exports = router;
-
-
-module.exports = function(app) {
-	app.post('/api/login',users.login);
 	app.post('/api/register', users.register);
+
+	//put all API routes before the route for every path
+	app.get('*', function (req, res) {
+	    res.sendFile(config.root + '/public/index.html');
+	});
 };
