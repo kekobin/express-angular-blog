@@ -1,0 +1,69 @@
+<link rel="stylesheet" href="css/simditor.css" />
+<div class="content">
+	<div class="nav-line"></div>
+	<div class="navbar">
+		<div class="dropdown">
+			<a class="a-bg" href="/home/articleList">
+				<i class="fa fa-home"></i>
+			</a>
+			<a ng-if="user.username" class="active a-bg" href="/writer">
+				<i class="fa fa-pencil"></i>
+			</a>
+			<a ng-if="user.username" class="a-bg" href="/home/mypage">
+				<i class="fa fa-user"></i>
+			</a>
+		</div>
+		<div class="nav-user">
+			<a ng-if="!user.username" class="a-no-bg" href="/home/login">
+				<i class="fa fa-sign-in"></i>
+			</a>
+			<a ng-if="user.username" class="a-no-bg" href="/home/logout">
+				<i class="fa fa-cogs"></i>
+			</a>
+			<a ng-if="user.username" class="a-no-bg" ng-click="logout()" style="cursor:pointer;">
+				<i class="fa fa-sign-out"></i>
+			</a>
+		</div>
+	</div>
+	<div class="col-2 aside js-height">
+		<ul id="navList" class="nav-list">
+			<li class="active" data-type='1'><a ><i></i><span>HTML/CSS</span></a></li>
+			<li data-type='2'><a ><i></i><span>JavaScript</span></a></li>
+			<li data-type='3'><a ><i></i><span>用户研究</span></a></li>
+			<li data-type='4'><a ><i></i><span>团队生活</span></a></li>
+			<li data-type='5'><a ><i></i><span>其它系列</span></a></li>
+		</ul>
+		<div class="list-info">
+			<p>尽情展示您的才华吧！！！</p>
+		</div>
+	</div>
+	<div class="col-3 middle js-height">
+		<div class="note-list">
+			<div class="new-note">
+				<a href="">
+					<i class="icon fa fa-pencil"></i>
+					<span class="win-text">+新建文章</span>
+				</a>
+			</div>
+			<ul class="notes">
+				<li class="active">
+					<i class="icon icon-note note-icon stop-share"></i>
+					<p class="abbreviate"></p>
+					<p class="wordage win-text">字数：0</p>
+					<a class="note-link title" ng-model="text">无标题博文</a>
+				</li>
+				<li>
+					<i class="icon icon-note note-icon stop-share"></i>
+					<p class="abbreviate"></p>
+					<p class="wordage win-text">字数：0</p>
+					<a class="note-link title" ng-model="text">无标题博文</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<div class="col-7 main">
+		<input class="title" type="text" ng-model="title">
+		<a ng-click="publish()" class="publish"><i class="fa fa-mail-forward"></i>发布博文</a>
+		<div id="editor"></div>
+	</div>
+</div>

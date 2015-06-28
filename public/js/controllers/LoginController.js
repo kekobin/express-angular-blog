@@ -1,5 +1,5 @@
 angular.module('eBlog')
-.controller('LoginController', function($scope, $http, $state) {
+.controller('LoginController',['$scope', '$http', '$state', 'userService','$rootScope', function($scope, $http, $state, userService,$rootScope) {
 	var element = angular.element(document.getElementById("loginForm"));
 	var errorSign = angular.element(document.getElementById("errorSign"));
 	var input = element.find("input");
@@ -19,16 +19,16 @@ angular.module('eBlog')
 			return false;
 		}
 
-		$http.post('/api/login', {
+		$http.post('/login', {
 			username: username,
 			password: password
 		}).then(function(resp) {
 			console.log(resp);
 			console.log(resp.data.username);
 			if(resp.data && resp.status && resp.status === 200) {
-				$state.go('home.articleList',{
-					user: resp.data.username
-				});
+				$rootScope.user = resp.data;
+				userService.init(resp.data);
+				$state.go('home.articleList');
 			}
 		}, function(resp) {
 			console.log('error:'+JSON.stringify(resp));
@@ -38,4 +38,4 @@ angular.module('eBlog')
 	$scope.keyup = function() {
 		errorSign.css({"display":"none"});
 	};
-});
+}]);

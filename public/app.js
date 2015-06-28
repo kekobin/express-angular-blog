@@ -7,12 +7,12 @@ angular.module('eBlog', ['ui.router'])
 			templateUrl: '/templates/home.html',
 			controller: 'HomeController'
 		})
-		.state('login', {
+		.state('home.login', {
 			url: '/login',
 			templateUrl: '/templates/login.html',
 			controller: 'LoginController'
 		})
-		.state('register', {
+		.state('home.register', {
 			url: '/register',
 			templateUrl: '/templates/register.html',
 			controller: 'RegisterController'
@@ -27,16 +27,15 @@ angular.module('eBlog', ['ui.router'])
 			templateUrl: '/templates/articleList.html',
 			controller: 'ArticleListController'
 		})
-		.state('center', {
-			url: '/center',
-			abstract: true,
-			templateUrl: '/templates/center.html',
-			controller: 'CenterController'
+		.state('home.mypage', {
+			url: '/mypage',
+			templateUrl: '/templates/mypage.html',
+			controller: 'MypageController'
 		})
-		.state('center.my', {
-			url: '/my',
-			templateUrl: '/templates/my.html',
-			controller: 'MyController'
+		.state('writer', {
+			url: '/writer',
+			templateUrl: '/templates/writer.html',
+			controller: 'WriterController'
 		});
 
 	$urlRouterProvider.otherwise('/home/articleList');

@@ -1,108 +1,111 @@
-.article-list{
-	padding-right:5%;
+.cover-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+}
 
-	article{
-		padding-bottom:25px;
+.left-aside {
+	.bottom-block {
+	  position: absolute;
+	  bottom: 0;
+	  padding: 30px;
+	  color: white;
 
-		header{
-			 h1{
-			 	font-size: 2.4em;
-			  	line-height: 1.3em;
-			  	letter-spacing: -.01em;
-			  	padding-bottom: 0px;
-			  	font-weight: bold;
-  			 	 margin-bottom: 10px;
+	  .btn-green{
+	  	text-align: center;
+		  color: white;
+		  border-color: #49be38;
+		  background: #49be38;
+		  &:hover{
+		  	background-color: #69BA5D;
+		  }
+	  }
+	}
+}
 
-  			  	a{
-  			  		color: #384047;
-  					text-decoration: none;
+.list-content{
+	width: 957px;
+	.sort-nav{
+		@extend %clearfix;
+		padding-left: 32px;
+	    margin-top: 50px;
+	    padding: 13px 0 0 20px;
+	    margin-bottom: 0;
+	    li{
+	    	float: left;
+  			margin: 10px 15px 5px 0;
 
-  					&:focus,&:active,&:hover{
-  					  color: #D24D33 !important;
-  					  cursor: pointer;
-  					}
-  			  	}
-			 }
-
-  			.entry-meta{
-  				  position: relative;
-  				  color: #8c989e;
-  				  font-size: 16px;
-				  border-bottom: 1px solid #eee;
-				  padding-bottom: 30px;
-				  line-height: 1.4em;
-
-				  .author{
-				  	  color: #D24D33;
-  					  padding-right: 3px;
-				  }
-				  .bullet{
-				  	color: #d3d9dd;
-				    padding: 0 5px;
-				    font-size: 14px;
-				    position: relative;
-				    top: -1px;
-				  }
-
-				  .cat-links{
-				  	a{
-				  		color: #5fcf80;
-				  	}
-				  }
-				  .comment{
-				  	a{
-				  		color:#4090ba;
-				  	}
-				  }
+  			a{
+  				  padding: 5px 10px;
+				  border: 1px solid #d9d9d9;
+				  border-radius: 14px;
+				  box-sizing: border-box;
+				  font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+				  font-size: 12px;
+				  font-weight: normal;
+				  line-height: 1.5;
   			}
-		}
-		.entry-content{
-			  padding: 1.625em 0 0;
-			  .content-wrap{
-			  	  margin-bottom: 1.625em;
-			  	  font-size: 16px;
-				  line-height: 1.8;
-				  color: #737C7F;
 
-				  p {
-					    position:relative;
-					    line-height:1.4em;
-					    /* 3 times the line-height to show 3 lines */
-					    height:4.2em;
-					    overflow:hidden;
+  			&.active a{
+  				  color: white;
+				  border-color: #e78170;
+				  background: #e78170;
+  			}
+	    }
+	}
+	.article-list-wrap{
+		  @extend %clearfix;
+		  padding-left: 36px;
+  		  margin: 35px 0 0;
+  		  li{
+  		  	  @extend %clearfix;
+  		  	  float: left;
+  		  	  position: relative;
+			  width: 100%;
+			  padding-right: 2px;
+			  padding-bottom: 17px;
+			  margin: 0 0 17px;
+			  border-bottom: 1px dashed #d9d9d9;
+			  box-sizing: border-box;
+			  word-wrap: break-word;
 
-					    &:after {
-						    content:"...";
-						    font-weight:bold;
-						    position:absolute;
-						    bottom:0;
-						    right:0;
-						    padding:0 20px 1px 10px;
-						    background:url(../img/ellipsis_bg.png) repeat-y;
-						}
-				  }
-				  .continue-reading {
-					  display: block ;
-					  margin-top: 30px;
+			  .list-top{
+			  	  margin: 8px 0;
+  				  font-size: 12px;
 
-					  a{
-						  word-wrap: break-word;
+  				  .time{
+  				  	  margin-left: 3px;
+  					  color: #717171;
+  				  }
+			  }
 
-					  	  background: #5fcf80;
-						  color: #FFF;
-						  padding: 15px 40px 15px;
-						  border: solid #3ac162;
-						  border-width: 1px 1px 3px 1px;
-						  border-radius: 5px;
-						  font-size: 1em;
-						  line-height: 1;
-						  font-weight: bold;
-						  -moz-box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
-						  -webkit-box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
-						  box-shadow: 0 -1px 0 rgba(255,255,255,0.1) inset;
-					  }
+			  .title{
+			  	  margin-top: 0;
+				  margin-bottom: 10px;
+				  margin-left: 0;
+				  display: inherit;
+				  font-size: 18px;
+				  font-weight: bold;
+				  line-height: 1.5;
+
+				  a:hover{
+				  	color:#0B0B0B;
 				  }
 			  }
-		}
+			  .list-footer{
+			  	  font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+				  font-size: 12px;
+				  font-weight: normal;
+				  line-height: 20px;
+
+				  a,span{
+				  	  color: #999999;
+				  }
+			  }
+  		  }
 	}
 }

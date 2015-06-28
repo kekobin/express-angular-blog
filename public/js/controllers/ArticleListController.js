@@ -1,7 +1,6 @@
 angular.module('eBlog')
-.controller('ArticleListController', ['$scope', '$state', '$http', '$stateParams', function($scope, $state, $http, $stateParams) {
-	console.log($stateParams)
-	$scope.user = $stateParams.user;
+.controller('ArticleListController', ['$scope', '$state', '$http', 'userService', function($scope, $state, $http, userService) {
+	$scope.user = userService.get();
 	console.log($scope.user);
 	$scope.goToDetail = function() {
 		$state.go("home.articleDetail");

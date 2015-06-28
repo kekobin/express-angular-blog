@@ -1,0 +1,296 @@
+.content{
+	@extend %clearfix;
+	.navbar{
+		width:45px;
+	}
+	.aside{
+		position: relative;
+		margin-left:45px;
+		float:left;
+	}
+	.nav-line{
+		width:100%;
+		height:20px;
+		border-bottom:1px solid #d9d9d9;
+	}
+    .col-2{
+      width: 16.66667%;
+      min-width: 240px;
+    }
+    .col-3{
+		width:25%;
+		min-width:338px;
+	}
+	.col-7{
+		// min-width:820px;
+		width: 56.1%;
+	}
+	.nav-list{
+		  margin-left: 0;
+		  padding-left: 15px;
+		  padding-right: 15px;
+		  margin-bottom: 0;
+		  font-size: 15px;
+		  font-weight: normal;
+		  line-height: 20px;
+          min-height: 144px;
+          overflow-y: auto;
+  		  overflow-x: hidden;
+  		  font-style: italic;
+ 		  li{
+ 		  	  position: relative;
+  			  line-height: 27px;
+ 		  	  height: 36px;
+			  -webkit-transition: height 0.4s cubic-bezier(0, 0.34, 0.64, 1.37);
+			  -moz-transition: height 0.4s cubic-bezier(0, 0.34, 0.64, 1.37);
+			  -o-transition: height 0.4s cubic-bezier(0, 0.34, 0.64, 1.37);
+			  transition: height 0.4s cubic-bezier(0, 0.34, 0.64, 1.37);
+
+			  a{
+			  	display: block;
+			  	position: relative;
+  				height: 30px;
+  				padding: 3px 15px;
+  				margin-left: -15px;
+  				margin-right: -15px;
+  				text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+  				i{
+  					  width: 20px;
+					  height: 20px;
+					  margin-top: 4px;
+					  display: inline-block;
+					  background-position: 0 0;
+					  background-image: url(../img/writer.png);
+					  background-repeat: no-repeat;
+					  background-size: 250px;
+  				}
+  				span{
+  					  position: absolute;
+					  right: 40px;
+					  overflow: hidden;
+					  text-overflow: ellipsis;
+					  white-space: nowrap;
+  					  font-style: normal;
+  					  left: 61px;
+  				}
+
+  				&:hover{
+  					background-color: #f2f2f2;
+  				}
+			  }
+			  &.active{
+			  	a,a:hover,a:focus{
+			  		  color: white;
+  					  text-shadow: 0 -1px 0 rgba(0,0,0,0.2);
+			  	}
+			  	a,a:hover{
+			  		  background-color: #e78170;
+					  box-shadow: inset 1px 1px 2px rgba(0,0,0,0.35),0 1px 4px rgba(0,0,0,0.15);
+					  -webkit-transition: background-color 0.3s linear;
+					  -moz-transition: background-color 0.3s linear;
+					  -o-transition: background-color 0.3s linear;
+					  transition: background-color 0.3s linear;
+			  	}
+
+			  	i{
+			  		  width: 40px;
+					  background-position: -22px 0;
+					  background-image: url(../img/writer.png);
+					  background-repeat: no-repeat;
+					  background-size: 250px;
+			  	}
+			  }
+ 		  }
+	}
+	.list-info{
+		  position: absolute;
+		  bottom: 20px;
+		  padding: 0 15px;
+		  font-style: italic;
+		  color: #999999;
+		  font-size: 14px;
+		  font-weight: normal;
+		  line-height: 20px;
+	}
+	.middle{
+		  float:left;
+		  border-left: 1px solid #d9d9d9;
+		  border-right: 1px solid #d9d9d9;
+		  overflow-y: auto;
+		  overflow-x: hidden;
+		  box-shadow: inset 0 -3px 8px rgba(0,0,0,0.13);
+	}
+	.note-list{
+		.new-note{
+			a{
+				  display: block;
+				  padding: 5px 10px 5px 20px;
+				  margin-top: 8px;
+				  font-style: italic;
+				  font-size: 12px;
+				  font-weight: normal;
+				  line-height: 20px;
+				  i{
+				  	  font-size: 18px;
+				  }
+			}
+		}
+		.notes{
+			border-top: 1px solid #d9d9d9;
+  			padding: 0;
+  			margin-bottom: 0;
+  			margin-left:0;
+  			li{
+  				  &.active{
+  				  	i,p{
+  				  		  -webkit-transition: color 0.35s linear;
+						  -moz-transition: color 0.35s linear;
+						  -o-transition: color 0.35s linear;
+						  transition: color 0.35s linear;
+  				  	}
+  				  	a,a:hover{
+  				  		background-color: transparent;
+  				  		color: white;
+  						text-shadow: 0 -1px 0 rgba(0,0,0,0.2);
+  				  	}
+  				  	i{
+  				  		  background-position: -25px -25px;
+  				  	}
+  				  }
+  				  position: relative;
+				  max-height: 90px;
+				  height: 90px;
+				  border-bottom: 1px solid #d9d9d9;
+				  background-color: transparent;
+				  &.active,&.active:hover{
+				  	  background-color: #d1c091;
+					  color: #eeeeee;
+					  text-shadow: 0 -1px 0 rgba(0,0,0,0.2);
+					  box-shadow: inset 0px 0px 10px rgba(0,0,0,0.2);
+					  -webkit-transition: background-color 0.3s linear;
+					  -moz-transition: background-color 0.3s linear;
+					  -o-transition: background-color 0.3s linear;
+					  transition: background-color 0.3s linear;
+				  }
+				  i{
+				  	  position: absolute;
+					  top: 30px;
+					  left: 20px;
+					  width: 22px;
+					  height: 30px;
+					  background-position: 0 -25px;
+					  background-image: url(../img/writer.png);
+					  background-repeat: no-repeat;
+					  background-size: 250px;
+				  }
+				  .abbreviate{
+				  	  position: absolute;
+					  top: 40px;
+					  left: 60px;
+					  right: 40px;
+					  max-height: 30px;
+					  height: 30px;
+					  margin: 0;
+					  overflow: hidden;
+					  text-overflow: ellipsis;
+					  white-space: nowrap;
+					  font-size: 11px;
+					  font-weight: normal;
+					  line-height: 36px;
+				  }
+				  .wordage{
+				  	  position: absolute;
+					  bottom: -7px;
+					  left: 5px;
+					  font-style: italic;
+					  font-family: "lucida grande", "lucida sans unicode", lucida, helvetica, "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+					  font-size: 9px;
+					  font-weight: normal;
+					  line-height: 16px;
+				  }
+				  .title{
+				  	  position: absolute;
+					  top: 0;
+					  right: 0;
+					  bottom: 0;
+					  left: 0;
+					  padding: 15px 40px 15px 60px;
+					  margin: 0;
+					  overflow: hidden;
+					  text-overflow: ellipsis;
+					  white-space: nowrap;
+					  font-size: 18px;
+					  font-weight: normal;
+					  line-height: 36px;
+				  }
+  			}
+		}
+	}
+	.main{
+		position:absolute;
+		right:0;
+		top:21px;
+		// height:100%;
+		.title{
+			  color: #555555;
+			  vertical-align: middle;
+			  display: inline-block;
+			  height: 50px;
+			  border: none;
+			  outline: none;
+			  -webkit-appearance: none;
+			  box-sizing: border-box;
+			  width: 100%;
+			  padding: 10px 20px 10px 30px;
+			  margin-bottom: 0;
+			  font-size: 30px;
+			  font-weight: normal;
+			  line-height: 30px;
+			  overflow: hidden;
+			  text-overflow: ellipsis;
+			  white-space: nowrap;
+			  border-radius: 0;
+			  box-shadow: none;
+			  -webkit-transition: border linear 0.2s, box-shadow linear 0.2s;
+			  -moz-transition: border linear 0.2s, box-shadow linear 0.2s;
+			  -o-transition: border linear 0.2s, box-shadow linear 0.2s;
+			  transition: border linear 0.2s, box-shadow linear 0.2s;
+		}
+	}
+	@media (min-width: 1200px){
+		.col-7{
+			width:55.2%;
+		}
+	}
+	@media (max-width: 1485px){
+		.col-7{
+			left:622px!important;
+			overflow-x: scroll!important;
+		}
+	}
+	@media (min-width: 1507px){
+		.col-7{
+			width:55.6%;
+		}
+	}
+	@media (min-width: 1840px){
+		.col-7{
+			width:56.1%;
+		}
+	}
+	.publish{
+		position:absolute;
+		right:40px;
+		display:block;
+		z-index: 9;
+  		top: 62px;
+  		i{
+  			margin-right:2px;
+  			@include inline-block;
+  		}
+	}
+}
+.simditor-body{
+	overflow-x:hidden;
+	overflow-y:auto;
+}

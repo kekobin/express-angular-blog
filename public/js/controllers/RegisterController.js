@@ -25,14 +25,14 @@ angular.module('eBlog')
 				return false;
 			}
 
-			$http.post('/api/register', {
+			$http.post('/register', {
 				username: username,
 				password: password
 			}).then(function(resp) {
 				console.log("----this is register------");
 				console.log(resp)
 				if (resp.data && resp.status && resp.status === 200) {
-					$state.go('login');
+					$state.go('home.login');
 				}
 			}, function(resp) {
 				console.log('error:' + JSON.stringify(resp));

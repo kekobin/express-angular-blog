@@ -4,7 +4,10 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title></title>
-	<link rel="stylesheet" href="/css/bootstrap.min.css">
+	<!-- build:css css/vendor.css -->
+	<link rel="stylesheet" href="/css/font-awesome.min.css">
+	<!-- endbuild -->
+
 	<!-- build:css css/main.css -->
 	<link rel="stylesheet" href="/css/main.css">
 	<!-- endbuild -->
@@ -13,8 +16,15 @@
 	<base href="/">
 	<div ui-view></div>
 	
+	<!-- build:js js/vendor.js -->
+	<script src='js/libs/jquery.min.js'></script>
+	<script src="js/libs/module.js"></script>
+	<script src="js/libs/hotkeys.js"></script>
+	<script src="js/libs/uploader.js"></script>
+	<script src="js/libs/simditor.js"></script>
 	<script src='js/libs/angular.js'></script>
 	<script src='js/libs/angular-ui-router.js'></script>
+	<!-- endbuild -->
 	
 	<!-- build:js js/app.js -->
 	<script src='app.js'></script>
@@ -23,8 +33,10 @@
 	<script src='js/controllers/RegisterController.js'></script>
 	<script src='js/controllers/ArticleListController.js'></script>
 	<script src='js/controllers/ArticleDetailController.js'></script>
-	<script src='js/controllers/CenterController.js'></script>
-	<script src='js/controllers/MyController.js'></script>
+	<script src='js/controllers/MypageController.js'></script>
+	<script src='js/controllers/WriterController.js'></script>
+	
+	<script src='js/services/userService.js'></script>
 	<!-- endbuild -->
 </body>
 </html>
