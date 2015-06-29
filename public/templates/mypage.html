@@ -10,6 +10,41 @@
 		</div>
 	</div>
 	<div class="col-7">
-		
+		<ul class="nav-articles">
+			<li><a>我的博文</a></li>
+		</ul>
+
+		<div class="list-content">
+			<ul class="article-list-wrap">
+				<!-- <li>
+				    <div>
+				      <p class="list-top">
+				        <span class="time">大约1分钟之前</span>
+				      </p>
+				      <h4 class="title"><a target="_blank" href="/p/7d38690b64fd">测试文章一</a></h4>
+				      <div class="list-footer">
+				        <a target="_blank" href="/p/7d38690b64fd">
+				          阅读 1
+						</a>        
+						<a target="_blank" href="/p/7d38690b64fd#comments">
+				           · 评论 0
+						</a>        
+				      </div>
+				    </div>
+				</li> -->
+				<li ng-repeat="item in articles">
+				    <div>
+				      <p class="list-top">
+				        <span class="time">{{item.time | timeFilter}}之前</span>
+				      </p>
+				      <h4 class="title"><a target="_blank" ng-click="goDetail(item._id)">{{item.title}}</a></h4>
+				      <div class="list-footer">
+				        <a>阅读 {{item.pv}}</a>        
+						<a target="_blank">· 评论 {{item.comment.length}}</a>        
+				      </div>
+				    </div>
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>

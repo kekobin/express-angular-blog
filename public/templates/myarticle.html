@@ -1,0 +1,30 @@
+<div class="my-article">
+	<a ng-if="user && user == article.username" class="btn" ng-click="modify(article._id)">
+	    <i class="fa fa-pencil-square-o"></i>
+	</a>
+	<a ng-if="user && user == article.username" class="btn delete-a" ng-click="delete(article._id)">
+	    <i class="fa fa-trash-o"></i>
+	</a>
+	<div class="container">
+		<div class="article">
+			<div class="author-info">
+	            <a class="avatar" href="/users/d257c563cfd5">
+	              <img src="../img/avatar-default.png">
+				</a>            
+				<span class="label">作者</span>
+	            <a class="author-name blue-link" href="/users/d257c563cfd5">
+	              <span>{{article.username}}</span>
+				</a>              
+				<span>{{article.time}}</span>
+	        </div>
+	        <h1 class="title">{{article.title}}</h1>
+	        <div class="meta-top">
+	            <span class="views-count">阅读{{article.pv}}</span>
+	            <span class="comments-count">评论{{article.comment.length}}</span>
+	        </div>
+	        <div class="show-content" id="showContent">
+	        	<!-- {{article.content}} -->
+	        </div>
+		</div>
+	</div>
+</div>

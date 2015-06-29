@@ -8,6 +8,12 @@ angular.module('eBlog')
 		},
 		get: function() {
 			return user;
+		},
+		getId: function() {
+			return user.id;
+		},
+		getName: function() {
+			return user.name;
 		}
 	}
 });

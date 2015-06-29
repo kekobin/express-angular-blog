@@ -17,4 +17,35 @@
   			}
   		}
 	}
+
+	.col-7{
+		  width: 45.0%!important;
+		  padding: 30px 80px!important;
+  		  word-break: break-word;
+
+  		  .nav-articles{
+  		  	  margin-left: 0;
+			  list-style: none;
+			  margin-bottom: 0;
+			  border-width: 2px;
+			  border-bottom: 2px solid #ddd;
+			  li{
+			  	  margin-right: 20px;
+			  	  padding-bottom: 5px;
+			  	  a{
+			  	  	  margin-right: 2px;
+			  	  	  padding-top: 8px;
+					  padding-bottom: 8px;
+					  line-height: 20px;
+			  	  }
+			  }
+  		  }
+  		  .list-content{
+  		  	width:100%!important;
+  		  	.article-list-wrap{
+  		  		  padding-left: 0px;
+  		  		  margin-top:15px !important;
+  		  	}
+  		  }
+	}
 }

@@ -23,11 +23,18 @@ angular.module('eBlog')
 			username: username,
 			password: password
 		}).then(function(resp) {
-			console.log(resp);
-			console.log(resp.data.username);
+			console.log('----user data----');
+			console.log(resp.data);
 			if(resp.data && resp.status && resp.status === 200) {
-				$rootScope.user = resp.data;
-				userService.init(resp.data);
+				var user = {
+					id:resp.data._id,
+					name: resp.data.username
+				};
+
+				sessionStorage.setItem('user', JSON.stringify(user));
+
+				$rootScope.user = user;
+				userService.init(user);
 				$state.go('home.articleList');
 			}
 		}, function(resp) {

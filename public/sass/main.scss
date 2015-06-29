@@ -7,6 +7,7 @@
 @import "modules/sign";
 @import "modules/mypage";
 @import "modules/writer";
+@import "modules/my-article";
 html,body,div,span,a,h1,h2,h3,h4,h5,h6,ul,li{
 	margin:0;
 	padding:0;
@@ -39,6 +40,15 @@ label, input, button, select, textarea {
   font-size: 14px;
   font-weight: normal;
   line-height: 20px;
+}
+.label {
+  display: inline-block;
+  padding: 2px 4px;
+  vertical-align: baseline;
+  white-space: nowrap;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }
 img {
   max-width: 100%;

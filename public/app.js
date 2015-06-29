@@ -17,11 +17,6 @@ angular.module('eBlog', ['ui.router'])
 			templateUrl: '/templates/register.html',
 			controller: 'RegisterController'
 		})
-		.state('home.articleDetail', {
-			url: '/articleDetail',
-			templateUrl: '/templates/articleDetail.html',
-			controller: 'ArticleDetailController'
-		})
 		.state('home.articleList', {
 			url: '/articleList',
 			templateUrl: '/templates/articleList.html',
@@ -32,8 +27,13 @@ angular.module('eBlog', ['ui.router'])
 			templateUrl: '/templates/mypage.html',
 			controller: 'MypageController'
 		})
+		.state('home.myarticle', {
+			url: '/myarticle/:id',
+			templateUrl: '/templates/myarticle.html',
+			controller: 'MyarticleController'
+		})
 		.state('writer', {
-			url: '/writer',
+			url: '/writer/:id',
 			templateUrl: '/templates/writer.html',
 			controller: 'WriterController'
 		});

@@ -10,9 +10,11 @@ angular.module('eBlog')
 
 	$scope.logout = function() {
 		$http.get('/logout').then(function(resp) {
+			sessionStorage.removeItem('user');
 			//refresh current page.
 			$timeout(function() {
 				location.reload();
+				$state.go('home.articleList');
 			}, 200);
 		});
 	};

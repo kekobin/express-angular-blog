@@ -16,6 +16,12 @@ module.exports = function(app, config) {
 
 	//article
 	app.post('/api/article',articles.add);
+	app.get('/api/article',articles.getAll);
+	app.get('/api/article/t/:type',articles.getByType);
+	app.get('/api/article/:uid',articles.getByUid);
+	app.get('/api/article/d/:id',articles.getById);
+	app.put('/api/article/:id',articles.update);
+	app.delete('/api/article/:id',articles.del);
 
 
 	//put all API routes before the route for every path
