@@ -5,8 +5,15 @@ angular.module('eBlog')
 			var height = parseInt($(window).height()) - 22;
 			var simditorBodyHeight = height - 154;
 			var editor = new Simditor({
-				textarea: $('#editor')
+				textarea: $('#editor'),
+				upload: {
+					'url': '/upload',
+					'fileKey': 'upfile',
+					'connectionCount': 1
+				},
+				pasteImage: true
 			});
+
 			$scope.user = userService.get();
 
 			$('.js-height').height(height);
@@ -17,21 +24,16 @@ angular.module('eBlog')
 				articleType = $(this).attr('data-type');
 			});
 
-			$scope.logout = function() {
-				$http.get('/logout').then(function(resp) {
-					sessionStorage.removeItem('user');
-					//refresh current page.
-					$timeout(function() {
-						location.reload();
-						$state.go('home.articleList');
-					}, 200);
-				});
-			};
-
 			$scope.publish = function() {
 				var article = {
-					uid: userService.getId(),
-					username: userService.getName(),
+					uid: $scope.user.id,
+					user: {
+				        id:$scope.user.id,
+				        username: $scope.user.name,
+				        nickname: $scope.user.nickname,
+				        avatar:$scope.user.avatar,
+				        introduction:$scope.user.introduction
+				    },
 					title: $scope.title,
 					content: editor.getValue(),
 					type: articleType,
@@ -47,7 +49,9 @@ angular.module('eBlog')
 				}).then(function(resp) {
 					console.log('----successful----');
 					console.log(resp);
-					$state.go('home.mypage');
+					$state.go('home.mypage', {
+						id: $scope.user.id
+					});
 				}, function(resp) {
 					console.log('----error----');
 					console.log(resp);
@@ -74,8 +78,14 @@ angular.module('eBlog')
 				function update() {
 					var articleType = $('#navList>li.active').attr('data-type');
 					var newData = {
-						uid: article.uid,
-						username: article.username,
+						uid: article.user.id,
+						user: {
+					        id:article.user.id,
+					        username: article.user.name,
+					        nickname: article.user.nickname,
+					        avatar: article.user.avatar,
+					        introduction: article.user.introduction
+					    },
 						title: $scope.title,
 						content: editor.getValue(),
 						type: articleType,
@@ -84,12 +94,14 @@ angular.module('eBlog')
 						comment: article.comment
 					};
 
-					$http.put('/api/article/'+article._id, {
+					$http.put('/api/article/' + article._id, {
 						data: newData
 					}).then(function(resp) {
 						console.log('----successful----');
 						console.log(resp);
-						$state.go('home.mypage');
+						$state.go('home.mypage', {
+							id: $scope.user.id
+						});
 					}, function(resp) {
 						console.log('----error----');
 						console.log(resp);

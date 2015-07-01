@@ -6,28 +6,18 @@ angular.module('eBlog')
 
 		$scope.register = function() {
 			var username = $scope.username;
+			var nickname = $scope.nickname;
 			var password = $scope.password;
 			var password2 = $scope.password2;
 
-			if (!username) {
-				errorSign.css({"top": "24px","display": "block"});
-				input[0].focus();
-				return false;
-			}
-			if (!password) {
-				errorSign.css({"top": "92px","display": "block"});
-				input[1].focus();
-				return false;
-			}
-			if (!password2 || password !== password2) {
-				errorSign.css({"top": "120px","display": "block"});
-				input[1].focus();
-				return false;
-			}
+			if(password2 != password) return;
 
 			$http.post('/register', {
 				username: username,
-				password: password
+				nickname: nickname,
+				password: password,
+				introduction: '世界很大，我想去看看!~',
+				avatar: '/img/avatar-default.png'
 			}).then(function(resp) {
 				console.log("----this is register------");
 				console.log(resp)

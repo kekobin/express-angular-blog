@@ -8,6 +8,9 @@ angular.module('eBlog')
 		}, 
 		get: function() {
 			return article;
+		},
+		clear: function() {
+			article = {};
 		}
 	};
 });

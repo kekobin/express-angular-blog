@@ -1,34 +1,22 @@
 angular.module('eBlog')
-.controller('HomeController', ['$scope', '$state', '$http','$timeout', function($scope, $state, $http,$timeout) {
-	$scope.signIn = function() {
-		$state.go('login');
-	};
+	.controller('HomeController', ['$scope', '$state', '$http', '$timeout', function($scope, $state, $http, $timeout) {
+		$scope.signIn = function() {
+			$state.go('login');
+		};
 
-	$scope.regist = function() {
-		$state.go('register');
-	};
-
-	$scope.logout = function() {
-		$http.get('/logout').then(function(resp) {
-			sessionStorage.removeItem('user');
-			//refresh current page.
-			$timeout(function() {
-				location.reload();
-				$state.go('home.articleList');
-			}, 200);
+		$scope.regist = function() {
+			$state.go('register');
+		};
+		
+		var userDrop = $('#userDropDown');
+		$('#userAvatar').on('click', function(e) {
+			e.stopPropagation();
+			userDrop.toggle();
 		});
-	};
 
-	var userDrop = $('#userDropDown');
-	$('#userAvatar').on('click', function(e) {
-		e.stopPropagation();
-		userDrop.toggle();
-	});
-
-	$('body').on('click', function() {
-		if(userDrop.css('display') != 'none') {
-			userDrop.hide();
-		}
-	});
-}]);
-
+		$(window).on('click', function() {
+			if (userDrop.css('display') != 'none') {
+				userDrop.hide();
+			}
+		});
+	}]);

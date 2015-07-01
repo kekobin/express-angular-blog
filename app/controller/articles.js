@@ -35,9 +35,6 @@ exports.getById = function(req, res) {
 
     Model.findById(id, function(err, docs) {
         if(err) res.send(err);
-        console.log('---this is get By id---');
-        console.log(user);
-        console.log(docs.username);
         //add pv statistics
         if(user == undefined || user.username != docs.username) {
             var pv = parseInt(docs.pv) + 1;
@@ -55,9 +52,6 @@ exports.getById = function(req, res) {
 };
 
 exports.getAll = function(req, res) {
-    console.log(">>get all article>>>");
-    console.log(req.user);
-    
     Model.find({}, function(err, docs) {
         if(err) res.send(err);
         res.send(docs);

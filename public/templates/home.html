@@ -8,7 +8,7 @@
 			<i class="fa fa-pencil"></i>
 			<span class="title">写文章</span>
 		</a>
-		<a ng-show="user.name" class="a-bg third" href="/home/mypage">
+		<a ng-show="user.name" class="a-bg third" href="/home/mypage/{{user.id}}">
 			<i class="fa fa-user"></i>
 			<span class="title">我的主页</span>
 		</a>
@@ -18,7 +18,7 @@
 			<i class="fa fa-sign-in"></i>
 			<span class="title">登录</span>
 		</a>
-		<a ng-if="user.name" class="a-no-bg" href="/home/logout">
+		<a ng-if="user.name" class="a-no-bg" href="/home/setting">
 			<i class="fa fa-cogs"></i>
 			<span class="title">设置</span>
 		</a>
@@ -34,18 +34,18 @@
 	</div>
 </div>
 <div class="navbar-user">
-    <a ng-if="!user.name" class="login" data-signup-link="true" data-toggle="modal" href="/home/register">
-      <i class="fa fa-user"></i> 注册</a>    
+<!--     <a ng-if="!user.name" class="login" data-signup-link="true" data-toggle="modal" href="/home/register">
+      <i class="fa fa-user"></i> 注册</a>    --> 
     <a ng-if="!user.name" class="login" data-signin-link="true" data-toggle="modal" href="/home/login">
       <i class="fa fa-sign-in"></i> 登录</a>
     <a ng-show="user.name" class="user avatar" id="userAvatar">
-    	<img src="img/avatar-default.png">
+    	<img ng-src="{{user.avatar}}">
     	<b class="caret"></b>
     </a>
     <ul ng-show="user.name" class="dropdown-menu arrow-top" id="userDropDown">
-    	<li><a href="/writer"><i class="fa fa-pencil"></i>写文章</a></li>
-    	<li><a href="/home/mypage"><i class="fa fa-user"></i>我的主页</a></li>
-    	<li><a><i class="fa fa-cogs"></i>设置</a></li>
+    	<li><a href="/writer/"><i class="fa fa-pencil"></i>写文章</a></li>
+    	<li><a href="/home/mypage/{{user.id}}"><i class="fa fa-user"></i>我的主页</a></li>
+    	<li><a href="/home/setting"><i class="fa fa-cogs"></i>设置</a></li>
     	<li ng-click="logout()"><a><i class="fa fa-sign-out"></i>退出</a></li>
     </ul>
 </div>

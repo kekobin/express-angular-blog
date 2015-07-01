@@ -1,0 +1,58 @@
+.manager{
+	h3{
+		text-align: center;
+		margin-top:50px;
+	}
+
+	.content{
+		margin-top:30px;
+		@extend %clearfix;
+	}
+
+	table{
+			width:50%;
+			float:left;
+			margin:0 auto;
+			text-align: center;
+		 	@extend %clearfix;
+		  	background-color: transparent;
+		    border-spacing: 0;
+  			border-collapse: collapse;
+
+  			thead>tr>th, tbody>tr>td{
+			    padding: 10px 50px;
+			  line-height: 1.42857143;
+			  vertical-align: top;
+			  border-top: 1px solid #ddd;
+  			}
+  			thead>tr:first-child{
+  				  border-top: 0;
+  			}
+  			thead>tr>th{
+  				  vertical-align: bottom;
+  				  border-bottom: 2px solid #ddd;
+  			}
+  			tbody>tr:last-child{
+  				border-bottom: 2px solid #ddd;
+  			}
+  			
+	}
+	form{
+		width:45%;
+		float:right;
+		padding:0 30px;
+		.form-group{
+			margin: 0 0 15px 0;
+			label{
+				@include inline-block;
+				width:150px;
+			}
+			input{
+				text-indent:10px;
+				width:200px;
+				height:40px;
+				line-height: 40px;
+			}
+		}
+	}
+}

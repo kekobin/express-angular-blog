@@ -1,0 +1,42 @@
+<div class="manager" ng-show="isAdmin">
+	<h3>互娱前端博客后台管理系统</h3>
+
+	<div class="content">
+		<table>
+			<thead>
+				<tr>
+					<th>邮箱</th>
+					<th>昵称</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in users">
+					<td>{{user.username}}</td>
+					<td>{{user.nickname}}</td>
+					<td>
+						<button ng-click="delete(user._id)">删除</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<form>
+			<div class="form-group">
+				<label>邮箱</label>
+				<input type="text" ng-model="username" placeholder="邮箱">
+			</div>
+			<div class="form-group">
+				<label>昵称</label>
+				<input type="text" ng-model="nickname" placeholder="昵称">
+			</div>
+			<div class="form-group">
+				<label>密码</label>
+				<input type="password" ng-model="password" placeholder="密码">
+			</div>
+			<div class="form-group">
+				<label></label>
+				<input type="submit" ng-click="addUser()" value="添加">
+			</div>
+		</form>
+	</div>
+</div>

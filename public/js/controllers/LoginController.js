@@ -8,27 +8,17 @@ angular.module('eBlog')
 		var username = $scope.username;
 		var password = $scope.password;
 		
-		if(!username) {
-			errorSign.css({"top":"24px", "display":"block"});
-			input[0].focus();
-			return false;
-		}
-		if(!password) {
-			errorSign.css({"top":"92px", "display":"block"});
-			input[1].focus();
-			return false;
-		}
-
 		$http.post('/login', {
 			username: username,
 			password: password
 		}).then(function(resp) {
-			console.log('----user data----');
-			console.log(resp.data);
 			if(resp.data && resp.status && resp.status === 200) {
 				var user = {
 					id:resp.data._id,
-					name: resp.data.username
+					name: resp.data.username,
+					nickname: resp.data.nickname,
+					avatar: resp.data.avatar,
+					introduction: resp.data.introduction
 				};
 
 				sessionStorage.setItem('user', JSON.stringify(user));

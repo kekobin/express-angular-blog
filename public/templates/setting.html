@@ -1,0 +1,26 @@
+<div class="setting">
+	<div class="content">
+		<h2 class="title"><i class="fa fa-cogs"></i> 基本设置</h2>
+		<div class="control-group">
+			<label class="control-label">昵称</label>
+			<input placeholder="2-15字符，中英文、数字和下划线" class="input" type="text" ng-model="nickname">
+			<label class="control-label">修改密码</label>
+			<input placeholder="新密码" class="input" type="password" ng-model="password">
+			<label class="control-label">设置头像</label>
+			<div class="avatar">
+				<img ng-src="{{avatar}}">
+				<!-- <div class="upload-area">
+					<input type="button" class="up-btn" value="上传">
+					<input type="file" name="fileField" class="file-input">
+				</div> -->
+				<div id="settingEditor"></div>
+			</div>
+			<label class="control-label introduction-label">简介</label>
+			<textarea ng-model="introduction" placeholder="show出你华丽的自白吧..."></textarea>
+			<button class="ladda-button submit-button" ng-click="save()">
+		      <span class="ladda-label">保 存</span>
+		    </button>
+		</div>
+	</div>
+	<div id="uploadData" class="upload-data"></div>
+</div>

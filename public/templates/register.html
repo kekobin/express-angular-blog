@@ -12,8 +12,12 @@
           <form class="form-horizontal">
                 <p id="signup_errors" class="signin_error hide"></p>
                 <div class="input-prepend">
+                  <span class="add-on"><i class="fa fa-envelope-o"></i></span>
+                  <input type="text" ng-model="username" class="span2" placeholder="你的邮箱地址">
+                </div>
+                <div class="input-prepend">
                   <span class="add-on"><i class="fa fa-user"></i></span>
-                  <input type="text" ng-model="username" class="span2" placeholder="昵称">
+                  <input type="text" ng-model="nickname" class="span2" placeholder="昵称">
                 </div>
                 <div class="input-prepend">
                   <span class="add-on"><i class="fa fa-unlock-alt"></i></span>

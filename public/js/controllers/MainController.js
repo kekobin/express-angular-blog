@@ -1,5 +1,5 @@
 angular.module('eBlog')
-.controller('MainController', ['$rootScope','userService','$http', function($rootScope,userService,$http) {
+.controller('MainController', ['$rootScope','userService','$http','articleService','$state', '$timeout', function($rootScope,userService,$http,articleService,$state,$timeout) {
 	var user = JSON.parse(sessionStorage.getItem('user'));
 
 	if(user) {
@@ -8,5 +8,18 @@ angular.module('eBlog')
 	}
 
 	$rootScope.user = user;
+
+	$rootScope.logout = function() {
+		$http.get('/logout').then(function(resp) {
+			sessionStorage.removeItem('user');
+			articleService.clear();
+			userService.clear();
+
+			$state.go('home.articleList');
+			$timeout(function() {
+				location.reload();
+			},100);
+		});
+	};
 }]);
 

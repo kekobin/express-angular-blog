@@ -7,7 +7,10 @@
 @import "modules/sign";
 @import "modules/mypage";
 @import "modules/writer";
+@import "modules/setting";
+@import "modules/manager";
 @import "modules/my-article";
+@import "modules/comment-directive";
 html,body,div,span,a,h1,h2,h3,h4,h5,h6,ul,li{
 	margin:0;
 	padding:0;
@@ -103,6 +106,16 @@ img {
 		margin-left: 25.0%;
 		width: 30%;
 	}
+  @media (min-width: 526px){
+    .col-7{
+      margin-left: 253px!important;
+    }
+  }
+  @media (min-width: 1190px){
+    .col-7{
+      margin-left: 25.0%!important;
+    }
+  }
 }
 
 h1 {
@@ -368,3 +381,15 @@ em {
   border-bottom: 9px solid white;
 }
 
+::-webkit-input-placeholder {
+  color: #555555;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #555555;
+}
+:-ms-input-placeholder {
+  color: #555555;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #555555;
+}

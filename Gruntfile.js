@@ -45,6 +45,11 @@ module.exports = function(grunt) {
                     cwd: '<%=config.app%>/css/',
                     src: 'bootstrap.min.css',
                     dest: '<%=config.dist%>/css/'
+                },{
+                    expand: true,
+                    cwd: '<%=config.app%>/fonts/',
+                    src: '*',
+                    dest: '<%=config.dist%>/fonts/'
                 }]
 			}
 		},

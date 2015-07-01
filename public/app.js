@@ -22,8 +22,13 @@ angular.module('eBlog', ['ui.router'])
 			templateUrl: '/templates/articleList.html',
 			controller: 'ArticleListController'
 		})
+		.state('home.setting', {
+			url: '/setting',
+			templateUrl: '/templates/setting.html',
+			controller: 'SettingController'
+		})
 		.state('home.mypage', {
-			url: '/mypage',
+			url: '/mypage/:id',
 			templateUrl: '/templates/mypage.html',
 			controller: 'MypageController'
 		})
@@ -36,6 +41,11 @@ angular.module('eBlog', ['ui.router'])
 			url: '/writer/:id',
 			templateUrl: '/templates/writer.html',
 			controller: 'WriterController'
+		})
+		.state('manager', {
+			url: '/manager',
+			templateUrl: '/templates/manager.html',
+			controller: 'ManagerController'
 		});
 
 	$urlRouterProvider.otherwise('/home/articleList');

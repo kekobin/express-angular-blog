@@ -3,9 +3,16 @@
 		<div class="people">
 		  <div class="basic-info">
 		    <div class="avatar">
-		      <img src="http://static.jianshu.io/assets/default_avatar-c6a8dff3e37e304f672f3cf7813319fa.png" alt="Default avatar">
+		      <img ng-if="articles[0].user.avatar" ng-src="{{articles[0].user.avatar}}">
+		      <img ng-if="!articles[0].user.avatar" ng-src="{{user.avatar}}">
 		    </div>
-		    <h3><a href="/users/d257c563cfd5">柯斌</a></h3>
+		    <h3>	
+		    	<a ng-if="!articles[0].user.nickname">{{user.nickname}}</a>
+		    	<a ng-if="articles[0].user.nickname">{{articles[0].user.nickname}}</a>
+		    </h3>
+		    <p class="introduction" ng-if="!articles[0].user.introduction
+		     ">{{user.introduction}}</p>
+		    <p class="introduction" ng-if="articles[0].user.introduction">{{articles[0].user.introduction}}</p>
 		  </div>
 		</div>
 	</div>
@@ -37,10 +44,10 @@
 				      <p class="list-top">
 				        <span class="time">{{item.time | timeFilter}}之前</span>
 				      </p>
-				      <h4 class="title"><a target="_blank" ng-click="goDetail(item._id)">{{item.title}}</a></h4>
+				      <h4 class="title"><a ng-click="goDetail(item._id)">{{item.title}}</a></h4>
 				      <div class="list-footer">
 				        <a>阅读 {{item.pv}}</a>        
-						<a target="_blank">· 评论 {{item.comment.length}}</a>        
+						<a>· 评论 {{item.comment.length}}</a>        
 				      </div>
 				    </div>
 				</li>

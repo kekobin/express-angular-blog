@@ -14,6 +14,18 @@ angular.module('eBlog')
 		},
 		getName: function() {
 			return user.name;
+		},
+		getNickname: function() {
+			return user.nickname;
+		},
+		getAvatar: function() {
+			return user.avatar;
+		},
+		getIntroduction: function() {
+			return user.introduction;
+		},
+		clear: function() {
+			user = {};
 		}
 	}
 });

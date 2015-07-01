@@ -1,0 +1,41 @@
+.comment-text{
+	position:relative;
+	margin-top:30px;
+	width:758px;
+	border:1px solid #d9d9d9;
+	padding:10px;
+	@include radius(5px);
+
+	textarea{
+		outline: none;
+		resize:none;
+		width:100%;
+		height: 84px;
+		border:none;
+		overflow-y: auto;
+		background: transparent;
+	}
+	.comment-btn{
+		padding-top:5px;
+		button{
+		  border:none;
+		  color: white;
+		  border-color: #15a7f0;
+		  background: #15a7f0;
+		  border-radius: 4px;
+		  box-shadow: none;
+		  text-shadow: none;
+		  padding: 4px 14px;
+		  margin-bottom: 0;
+		  font-size: 14px;
+		  line-height: 20px;
+		  text-align: center;
+		  vertical-align: middle;
+		  line-height: 20px;
+		}
+		.hotkey{
+			display: inline-block;
+			margin-left:10px;
+		}
+	}
+}

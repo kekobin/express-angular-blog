@@ -3,7 +3,13 @@ var mongoose = require('mongoose'),
 
 var ArticleSchema = new Schema({
     uid: String,
-    username: String,
+    user: {
+        id:String,
+        username: String,
+        nickname: String,
+        avatar: String,
+        introduction: String
+    },
     title: String,
     content: String,
     type: String,

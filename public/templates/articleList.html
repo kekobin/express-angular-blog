@@ -1,9 +1,9 @@
 <div class="article-list">
 	<div class="col-3 left-aside">
-		<div class="cover-img" style="background-image: url(http://upload.jianshu.io/daily_images/images/8JwPCZwJgzVdmf1ya9jC.jpg)"></div>
+		<div class="cover-img" style="background-image: url(../img/home-bg.jpg)"></div>
 		<div class="bottom-block">
 	      <h1>互娱</h1>
-	      <h3>聚前沿.聚前端</h3>
+	      <h3>浣聚熊.聚前沿</h3>
 	      <p>一个立志于技术开放和分享的博客社区</p>
 	      <a class="btn btn btn-large btn-green" ng-click="write()">写博客</a>
 	    </div>
@@ -48,7 +48,7 @@
 				<li ng-repeat="item in articles">
 				    <div>
 				      <p class="list-top">
-				        <a class="author-name blue-link" target="_blank" href="/users/2769cc7732a7">{{item.username}}</a>
+				        <a class="author-name blue-link" href="/home/mypage/{{item.user.id}}">{{item.user.nickname}}</a>
 				        <em>·</em>
 				        <span class="time">{{item.time | timeFilter}}之前</span>
 				      </p>
