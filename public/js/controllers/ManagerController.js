@@ -1,5 +1,8 @@
 angular.module('eBlog')
 .controller('ManagerController', ['$scope', '$state', '$http',function($scope, $state, $http) {
+	$('.no-write').hide();
+	$('.home-write').show();
+
 	$scope.isAdmin = false;
 	var account = window.prompt("输入账号", "");
 
@@ -12,7 +15,7 @@ angular.module('eBlog')
 	} 
 
 	$scope.delete = function(id) {
-		$http.delete('/api/user/'+id).then(function(resp) {
+		$http.delete('/blog/api/user/'+id).then(function(resp) {
 			if(resp.data && resp.status && resp.status === 200) {
 				for(var i=0,len=$scope.users.length;i<len;i++) {
 					var item = $scope.users[i];
@@ -32,7 +35,7 @@ angular.module('eBlog')
 		var nickname = $scope.nickname;
 		var password = $scope.password;
 
-		$http.post('/register', {
+		$http.post('/blog/register', {
 			username: username,
 			nickname: nickname,
 			password: password,
@@ -51,7 +54,7 @@ angular.module('eBlog')
 	};
 
 	function initData() {
-		$http.get('/api/user').then(function(resp) {
+		$http.get('/blog/api/user').then(function(resp) {
 			if(resp.data && resp.status && resp.status === 200) {
 				$scope.users = resp.data;
 			}

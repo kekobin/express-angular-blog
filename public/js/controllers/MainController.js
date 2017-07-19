@@ -10,12 +10,12 @@ angular.module('eBlog')
 	$rootScope.user = user;
 
 	$rootScope.logout = function() {
-		$http.get('/logout').then(function(resp) {
+		$http.get('/blog/logout').then(function(resp) {
 			sessionStorage.removeItem('user');
 			articleService.clear();
 			userService.clear();
 
-			$state.go('home.articleList');
+			$state.go('blog.articleList');
 			$timeout(function() {
 				location.reload();
 			},100);

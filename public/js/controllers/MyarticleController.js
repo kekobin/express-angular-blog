@@ -1,46 +1,53 @@
 angular.module('eBlog')
 	.controller('MyarticleController', ['$scope', '$state', '$http', '$stateParams', 'userService', 'articleService', 'utilService',
 		function($scope, $state, $http, $stateParams, userService, articleService, utilService) {
+			$('.no-write').show();
+			$('.home-write').hide();
 			var id = $stateParams.id;
 			var article;
 
-			$scope.user = userService.getName();
+			$scope.uid = userService.getId();
 
 			init();
 
 			$scope.modify = function(id) {
 				articleService.set(article);
-				$state.go('writer', {
+				$state.go('blog.writer', {
 					id: id
 				});
 			};
 
 			$scope.delete = function(id) {
-				$http.delete('/api/article/' + id).then(function(resp) {
-					console.log('----delete article successful----');
-					console.log(resp.data);
-
+				$http.delete('/blog/api/article/' + id).then(function(resp) {
 					if (resp.data && resp.status && resp.status === 200) {
-						$state.go('home.articleList');
+						$state.go('blog.articleList');
 					}
 				}, function(resp) {
-					console.log('----delete article successful----');
+					console.log('----delete article error----');
 					console.log(resp.data);
 				});
 			};
 
 			$scope.publish = function() {
+				if(!$scope.message) {
+					$('.my-article-tip').fadeIn('slow');
+					setTimeout(function() {
+						$('.my-article-tip').fadeOut('slow');
+					}, 2500);
+
+					return;
+				}
 				var time = new Date().getTime();
 				var date = utilService.formatTime(time);
 				var comment = {
 					cid: time,
 					cuser: userService.get(),
 					tuser: {
-						id: article.uid,
-						name: article.username,
-						nickname: article.nickname,
-						avatar: article.avatar,
-						introduction: article.introduction
+						id: article.user.id,
+						username: article.user.username,
+						nickname: article.user.nickname,
+						avatar: article.user.avatar,
+						introduction: article.user.introduction
 					},
 					message: $scope.message,
 					time: date,
@@ -59,15 +66,25 @@ angular.module('eBlog')
 				$scope.myKeyup = function(e) {
 					var keycode = window.event ? e.keyCode : e.which;
 					if (keycode == 13) {
+						var $target = $(e.target);
+						var value = $target.val().trim();
+						if(value == "") {
+							$('.my-article-tip').fadeIn('slow');
+							setTimeout(function() {
+								$('.my-article-tip').fadeOut('slow');
+							}, 2500);
+
+							return;
+						}
+
 						var time = new Date().getTime();
 						var date = utilService.formatTime(time);
-						var $target = $(e.target);
 						var comment = getTargetComment(id);
 						var reply = {
 							rid: time,
 							time: date,
 							user: userService.get(),
-							message: $target.val()
+							message: value
 						};
 
 						comment.reply.push(reply);
@@ -127,17 +144,11 @@ angular.module('eBlog')
 			}
 
 			function init() {
-				$http.get('/api/article/d/' + id).then(function(resp) {
-					console.log('----get user 1 detail article successful----');
-					console.log(resp.data);
-
+				$http.get('/blog/api/article/d/' + id).then(function(resp) {
 					if (resp.data && resp.status && resp.status === 200) {
 						article = resp.data;
-
 						$scope.articleTime = utilService.formatTime(resp.data.time);
-
 						$scope.article = resp.data;
-
 						$('#showContent').html($scope.article.content);
 					}
 				}, function(resp) {
@@ -153,7 +164,7 @@ angular.module('eBlog')
 					uid:article.user.id,
 					user: {
 				        id:article.user.id,
-				        username: article.user.name,
+				        username: article.user.username,
 				        nickname: article.user.nickname,
 				        avatar: article.user.avatar,
 				        introduction: article.user.introduction
@@ -166,15 +177,12 @@ angular.module('eBlog')
 					comment: article.comment
 				};
 
-				$http.put('/api/article/' + article._id, {
+				$http.put('/blog/api/article/' + article._id, {
 					data: newData
 				}).then(function(resp) {
-					console.log('----successful----');
-					console.log(resp);
-
 					$scope.message = '';
 				}, function(resp) {
-					console.log('----error----');
+					console.log('----saveCommentToDb error----');
 					console.log(resp);
 				});
 			}

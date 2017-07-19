@@ -1,5 +1,7 @@
 angular.module('eBlog')
 	.controller('SettingController', ['$scope', '$state', '$http', 'userService','$rootScope','$timeout', function($scope, $state, $http, userService,$rootScope,$timeout) {
+		$('.no-write').show();
+		$('.home-write').hide();
 		var user = userService.get();
 		$scope.nickname = user.nickname;
 		$scope.introduction = user.introduction;
@@ -8,7 +10,7 @@ angular.module('eBlog')
 		var editor = new Simditor({
 			textarea: $('#settingEditor'),
 			upload: {
-				'url': '/upload',
+				'url': '/blog/upload',
 				'fileKey': 'upfile',
 				'connectionCount': 1
 			},
@@ -38,7 +40,7 @@ angular.module('eBlog')
 				password: $scope.password
 			};
 
-			$http.post('/api/user/'+ user.id, {
+			$http.post('/blog/api/user/'+ user.id, {
 				data: uData
 			}).then(function(resp) {
 				if(resp.data && resp.status && resp.status === 200) {
@@ -50,15 +52,27 @@ angular.module('eBlog')
 						introduction: resp.data.introduction
 					};
 
+					syncToArticlesInDB(newUser);
 					sessionStorage.setItem('user', JSON.stringify(newUser));
 
 					$rootScope.user = newUser;
 					userService.init(newUser);
-					$state.go('home.articleList');
+					$state.go('blog.articleList');
 				}
 			},function(resp) {
 				console.log("---modify setting error--");
 				console.log(resp);
 			});
 		};
+
+		function syncToArticlesInDB(cuser) {
+			$http.put('/blog/api/article/u/'+ cuser.id, {
+				data: cuser
+			}).then(function(resp) {
+
+			},function(resp) {
+				console.log("---syncToArticlesInDB error--");
+				console.log(resp);
+			});
+		}
 	}]);

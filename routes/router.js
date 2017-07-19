@@ -5,30 +5,32 @@ var formidable = require('formidable');
 var fs = require('fs');
 
 module.exports = function(app, config) {
-	app.post('/login', passport.authenticate('local'), function(req, res) {
+	app.post('/blog/login', passport.authenticate('local'), function(req, res) {
 		res.send(req.user);
 	});
 
-	app.post('/register', users.register);
-	app.post('/api/user/:id', users.update);
-	app.get('/api/user', users.getAll);
+	app.post('/blog/register', users.register);
+	app.post('/blog/api/user/:id', users.update);
+	app.get('/blog/api/user', users.getAll);
+	app.get('/blog/api/user/:id', users.getById);
 	app.delete('/api/user/:id',users.del);
 
-	app.get('/logout', function(req, res) {
+	app.get('/blog/logout', function(req, res) {
 		req.logout();
 		res.send('redirect');
 	});
 
 	//article
-	app.post('/api/article',articles.add);
-	app.get('/api/article',articles.getAll);
-	app.get('/api/article/t/:type',articles.getByType);
-	app.get('/api/article/:uid',articles.getByUid);
-	app.get('/api/article/d/:id',articles.getById);
-	app.put('/api/article/:id',articles.update);
-	app.delete('/api/article/:id',articles.del);
+	app.post('/blog/api/article',articles.add);
+	app.get('/blog/api/article',articles.getAll);
+	app.get('/blog/api/article/t/:type',articles.getByType);
+	app.get('/blog/api/article/:uid',articles.getByUid);
+	app.get('/blog/api/article/d/:id',articles.getById);
+	app.put('/blog/api/article/:id',articles.update);
+	app.put('/blog/api/article/u/:uid',articles.updateUser);
+	app.delete('/blog/api/article/:id',articles.del);
 
-	app.post('/upload', function(req, res) {
+	app.post('/blog/upload', function(req, res) {
 	    var form = new formidable.IncomingForm();
 	    form.uploadDir = config.root+"/public/upload";
 

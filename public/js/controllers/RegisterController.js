@@ -12,7 +12,7 @@ angular.module('eBlog')
 
 			if(password2 != password) return;
 
-			$http.post('/register', {
+			$http.post('/blog/register', {
 				username: username,
 				nickname: nickname,
 				password: password,
@@ -22,7 +22,7 @@ angular.module('eBlog')
 				console.log("----this is register------");
 				console.log(resp)
 				if (resp.data && resp.status && resp.status === 200) {
-					$state.go('home.login');
+					$state.go('blog.login');
 				}
 			}, function(resp) {
 				console.log('error:' + JSON.stringify(resp));

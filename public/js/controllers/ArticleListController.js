@@ -1,20 +1,22 @@
 angular.module('eBlog')
 .controller('ArticleListController', ['$scope', '$state', '$http', 'userService', function($scope, $state, $http, userService) {
-	var url = '/api/article';
+	$('.no-write').show();
+	$('.home-write').hide();
+	var url = '/blog/api/article';
 
 	var user = userService.get();
 
 	initData();
 
 	$scope.goToDetail = function() {
-		$state.go("home.articleDetail");
+		$state.go("blog.articleDetail");
 	};
 
 	$scope.write = function() {
 		if(!user.name) {
-			$state.go('home.login');
+			$state.go('blog.login');
 		} else {
-			$state.go('writer');
+			$state.go('blog.writer');
 		}
 	};
 
@@ -29,8 +31,6 @@ angular.module('eBlog')
 
 	function initData() {
 		$http.get(url).then(function(resp) {
-			console.log('----get articles successful----');
-			console.log(resp.data);
 			if(resp.data && resp.status && resp.status === 200) {
 				$scope.articles = resp.data;
 			}
@@ -41,7 +41,7 @@ angular.module('eBlog')
 	}
 
 	function getDataByType(type) {
-		url = type == '0' ? '/api/article' : '/api/article/t/'+type;
+		url = type == '0' ? '/blog/api/article' : '/blog/api/article/t/'+type;
 
 		initData();
 	}

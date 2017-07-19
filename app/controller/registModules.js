@@ -6,7 +6,7 @@ exports.add = function(req, res) {
     var data = req.body.data;
 
     Model.create(data, function(err, docs) {
-        if(err) res.send(err);
+        if(err) return res.send(err);
         res.send(docs);
     });
 };
@@ -15,14 +15,14 @@ exports.getOne = function(req, res) {
     var id = req.params.id;
 
     Model.findById(id, function(err, docs) {
-        if(err) res.send(err);
+        if(err) return res.send(err);
         res.send(docs);
     });
 };
 
 exports.getAll= function(req, res) {
     Model.find({}, function(err, docs) {
-        if(err) res.send(err);
+        if(err) return res.send(err);
         res.send(docs);
     });
 };
@@ -32,7 +32,7 @@ exports.update = function(req, res) {
     var id = req.params.id;
 
     Model.findByIdAndUpdate(id, data, function(err, docs) {
-        if(err) res.send(err);
+        if(err) return res.send(err);
         res.send(docs);
     });
 };

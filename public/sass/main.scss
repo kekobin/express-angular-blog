@@ -393,3 +393,27 @@ em {
 :-moz-placeholder { /* Firefox 18- */
   color: #555555;
 }
+.home-write{
+  display: none;
+}
+.tip{
+  display:none;
+  width:300px;
+  height:40px;
+  line-height: 40px;
+  color:#fff;
+  text-align: center;
+  font-size:13px;
+  font-weight: bold;
+  background-color:rgb(229, 140, 124);
+  border-radius:5px;
+
+    position: fixed;
+    top:0;
+  left: 50%;
+  margin-left: -150px;
+    z-index: 99999;
+    &.login-tip{
+       margin-left: -70px!important;
+    }
+}

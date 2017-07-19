@@ -1,53 +1,61 @@
 angular.module('eBlog', ['ui.router'])
 .config(['$stateProvider', '$urlRouterProvider','$locationProvider', function($stateProvider, $urlRouterProvider,$locationProvider) {
 	$stateProvider
-		.state('home', {
-			url: '/home',
+		.state('blog', {
+			url: '/blog',
 			abstract: true,
 			templateUrl: '/templates/home.html',
 			controller: 'HomeController'
 		})
-		.state('home.login', {
+		.state('blog.login', {
 			url: '/login',
 			templateUrl: '/templates/login.html',
 			controller: 'LoginController'
 		})
-		.state('home.register', {
+		.state('blog.register', {
 			url: '/register',
 			templateUrl: '/templates/register.html',
 			controller: 'RegisterController'
 		})
-		.state('home.articleList', {
+		.state('blog.articleList', {
 			url: '/articleList',
 			templateUrl: '/templates/articleList.html',
 			controller: 'ArticleListController'
 		})
-		.state('home.setting', {
+		.state('blog.setting', {
 			url: '/setting',
 			templateUrl: '/templates/setting.html',
 			controller: 'SettingController'
 		})
-		.state('home.mypage', {
+		.state('blog.mypage', {
 			url: '/mypage/:id',
 			templateUrl: '/templates/mypage.html',
 			controller: 'MypageController'
 		})
-		.state('home.myarticle', {
+		.state('blog.myarticle', {
 			url: '/myarticle/:id',
 			templateUrl: '/templates/myarticle.html',
 			controller: 'MyarticleController'
 		})
-		.state('writer', {
+		.state('blog.writer', {
 			url: '/writer/:id',
-			templateUrl: '/templates/writer.html',
-			controller: 'WriterController'
+			views: {
+				'write': {
+					templateUrl: '/templates/writer.html',
+					controller: 'WriterController'
+				}
+			}
 		})
-		.state('manager', {
+		.state('blog.manager', {
 			url: '/manager',
-			templateUrl: '/templates/manager.html',
-			controller: 'ManagerController'
+			views: {
+				'write': {
+					templateUrl: '/templates/manager.html',
+					controller: 'ManagerController'
+				}
+			}
 		});
 
-	$urlRouterProvider.otherwise('/home/articleList');
+	$urlRouterProvider.otherwise('/blog/articleList');
 	$locationProvider.html5Mode(true);
 }]);

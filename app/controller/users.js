@@ -33,7 +33,7 @@ exports.update = function(req, res) {
 	};
 	
     User.findById(id, function(err, user) {
-        if(err) res.send(err);
+        if(err) return res.send(err);
         user.nickname = u.nickname;
         user.introduction = u.introduction;
         user.avatar = u.avatar;
@@ -48,7 +48,15 @@ exports.update = function(req, res) {
 
 exports.getAll = function(req, res) {
     User.find({}, function(err, docs) {
-        if(err) res.send(err);
+        if(err) return res.send(err);
+        res.send(docs);
+    });
+};
+
+exports.getById = function(req, res) {
+    var id = req.params.id;
+    User.findById(id, function(err, docs) {
+        if(err) return res.send(err);
         res.send(docs);
     });
 };
@@ -57,7 +65,7 @@ exports.del = function(req, res) {
     var id = req.params.id;
     
     User.remove({_id: id}, function(err, docs) {
-        if(err) res.send(err);
+        if(err) return res.send(err);
         res.send(docs);
     });
 };;

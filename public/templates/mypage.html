@@ -3,16 +3,12 @@
 		<div class="people">
 		  <div class="basic-info">
 		    <div class="avatar">
-		      <img ng-if="articles[0].user.avatar" ng-src="{{articles[0].user.avatar}}">
-		      <img ng-if="!articles[0].user.avatar" ng-src="{{user.avatar}}">
+		      <img ng-src="{{articleUser.avatar}}">
 		    </div>
 		    <h3>	
-		    	<a ng-if="!articles[0].user.nickname">{{user.nickname}}</a>
-		    	<a ng-if="articles[0].user.nickname">{{articles[0].user.nickname}}</a>
+		    	<a>{{articleUser.nickname}}</a>
 		    </h3>
-		    <p class="introduction" ng-if="!articles[0].user.introduction
-		     ">{{user.introduction}}</p>
-		    <p class="introduction" ng-if="articles[0].user.introduction">{{articles[0].user.introduction}}</p>
+		    <p class="introduction">{{articleUser.introduction}}</p>
 		  </div>
 		</div>
 	</div>
@@ -23,22 +19,6 @@
 
 		<div class="list-content">
 			<ul class="article-list-wrap">
-				<!-- <li>
-				    <div>
-				      <p class="list-top">
-				        <span class="time">大约1分钟之前</span>
-				      </p>
-				      <h4 class="title"><a target="_blank" href="/p/7d38690b64fd">测试文章一</a></h4>
-				      <div class="list-footer">
-				        <a target="_blank" href="/p/7d38690b64fd">
-				          阅读 1
-						</a>        
-						<a target="_blank" href="/p/7d38690b64fd#comments">
-				           · 评论 0
-						</a>        
-				      </div>
-				    </div>
-				</li> -->
 				<li ng-repeat="item in articles">
 				    <div>
 				      <p class="list-top">
