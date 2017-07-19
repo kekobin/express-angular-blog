@@ -32,11 +32,11 @@ angular.module('eBlog')
 	function initData() {
 		$http.get(url).then(function(resp) {
 			if(resp.data && resp.status && resp.status === 200) {
-				$scope.articles = resp.data;
+				$scope.articles = resp.data.reverse();
 			}
 		}, function(resp) {
-			console.log('----get articles successful----');
-			console.log(resp.data);
+			// console.log('----get articles successful----');
+			// console.log(resp.data);
 		});
 	}
 

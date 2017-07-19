@@ -33,10 +33,14 @@
 	        	<div class="note-comment" ng-repeat="item in article.comment track by item.cid">
 	        		<div class="content">
 					    <div class="meta-top">
-					      <a href="/blog/mypage/{{item.cuser.id}}">
-					        <div class="avatar"><img ng-src="{{item.cuser.avatar}}"></div>
-						  </a>      
-						  <a class="author-name" href="/blog/mypage/{{item.cuser.id}}">{{item.cuser.nickname}}</a>
+					      <a href="/blog/mypage/{{item.cuser.id}}" ng-if="item.cuser.id">
+					      	<div class="avatar"><img ng-src="{{item.cuser.avatar}}"></div>
+					      </a>     
+					      <a href="javascript:void(0)" ng-if="!item.cuser.id">
+					      	<div class="avatar"><img ng-src="{{item.cuser.avatar}}"></div>
+					      </a>  
+						  <a class="author-name" href="/blog/mypage/{{item.cuser.id}}" ng-if="item.cuser.id">{{item.cuser.nickname}}</a>
+						  <a class="author-name" href="javascript:void(0)" ng-if="!item.cuser.id">{{item.cuser.nickname}}</a>
 					      <span class="reply-time"><a>{{item.time}}</a></span>
 					    </div>
 					    <p>{{item.message}}</p>

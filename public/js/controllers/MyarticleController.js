@@ -39,9 +39,20 @@ angular.module('eBlog')
 				}
 				var time = new Date().getTime();
 				var date = utilService.formatTime(time);
+				var cuser = userService.get();
+
+				//游客身份时，获取不到cuser，给默认头像
+				if(!cuser.id) {
+					cuser = {
+						username:"游客",
+						nickname:"游客",
+						avatar: "/upload/default.png"
+					}
+				}
+
 				var comment = {
 					cid: time,
-					cuser: userService.get(),
+					cuser: cuser,
 					tuser: {
 						id: article.user.id,
 						username: article.user.username,

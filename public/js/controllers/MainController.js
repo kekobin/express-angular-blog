@@ -3,7 +3,7 @@ angular.module('eBlog')
 	var user = JSON.parse(sessionStorage.getItem('user'));
 
 	if(user) {
-		console.log(user)
+		// console.log(user)
 		userService.init(user);
 	}
 
